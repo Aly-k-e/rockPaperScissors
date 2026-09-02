@@ -1,6 +1,12 @@
+
+const choice = ["rock", "paper", "scissors"]
+
 function getRandomChoice() {
-    let number = Math.round((Math.random() * 10))
-    return number
+    const number = Math.floor(Math.random() * 3)
+    console.log(choice[number])
 }
 
-console.log(getRandomChoice())
+function getUserChoice() {
+    const userChoice = prompt("rock, paper or scissors")
+    console.log(userChoice)
+}
