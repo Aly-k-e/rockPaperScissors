@@ -10,8 +10,8 @@ function getRandomChoice() {
 }
 
 function getUserChoice() {
-    const userChoice = prompt("rock, paper or scissors")
-    return userChoice.toLowerCase()
+    const userChoice = prompt("rock, paper or scissors").toLocaleLowerCase()
+    return userChoice
 }
 
 function playRound(user, computer) {
@@ -29,26 +29,32 @@ function playRound(user, computer) {
         else if (user === "rock" && computer === "paper") {
             console.log("paper beats rock you lose")
             computerScore += 1;
+            console.log(`your score is now ${userScore} and the computer is ${computerScore}`)
         }
         else if (user === "rock" && computer === "scissors") {
             console.log("rock beats scissors you win")
             userScore += 1;
+            console.log(`your score is now ${userScore} and the computer is ${computerScore}`)
         }
         else if (user === "paper" && computer === "rock") {
             console.log("paper beats rock you win")
             userScore += 1;
+            console.log(`your score is now ${userScore} and the computer is ${computerScore}`)
         }
         else if (user === "paper" && computer === "scissors") {
             console.log("scissor beats paper you lose")
             computerScore += 1;
+            console.log(`your score is now ${userScore} and the computer is ${computerScore}`)
         }
         else if (user === "scissors" && computer === "rock") {
             console.log("rock beats scissors you lose")
             computerScore += 1;
+            console.log(`your score is now ${userScore} and the computer is ${computerScore}`)
         }
         else if (user === "scissors" && computer === "paper") {
             console.log("scissors beat paper you win")
             userScore += 1;
+            console.log(`your score is now ${userScore} and the computer is ${computerScore}`)
         }
         else {
             console.log("make sure you spell everything correctly")
@@ -64,9 +70,36 @@ function playGame() {
     userScore = 0;
     computerScore = 0;
 
-    for (let i = 0; i <= 5; i++) {
+    setTimeout(() => {
+        console.log("round 1")
+        playRound(getUserChoice, getRandomChoice)
+    }, 2000)
 
-        setTimeout(() => playRound(getUserChoice()), getRandomChoice(), 3000)
+    setTimeout(() => {
+        console.log("round 2")
+        playRound(getUserChoice, getRandomChoice)
+    }, 2000)
+
+    setTimeout(() => {
+        console.log("round 3")
+        playRound(getUserChoice, getRandomChoice)
+    }, 2000)
+
+    setTimeout(() => {
+        console.log("round 4")
+        playRound(getUserChoice, getRandomChoice)
+    }, 2000)
+
+    setTimeout(() => {
+        console.log("round 5")
+        playRound(getUserChoice, getRandomChoice)
+    }, 2000)
+
+    if (computerScore > userScore) {
+        console.log(`computer scored ${computerScore} you scored ${userScore} you lose!`)
+    }
+    else {
+        console.log(`computer scored ${computerScore} you scored ${userScore} you win!`)
     }
 }
 
